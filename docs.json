@@ -48,6 +48,12 @@
               "ai-tools/claude-code",
               "ai-tools/windsurf"
             ]
+          },
+          {
+            "group": "金数据帮助中心",
+            "pages": [
+              "features/sms"
+            ]
           }
         ]
       },
