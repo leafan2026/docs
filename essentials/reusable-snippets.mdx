@@ -1,18 +1,18 @@
 ---
-title: "Reusable snippets"
-description: "Write once, reuse everywhere. Use snippets to keep content in sync across pages"
+title: "可复用片段"
+description: "一次编写，随处复用。使用 snippet 保持多页面内容同步"
 icon: "recycle"
 ---
 
-Any content you find yourself repeating across pages is a good candidate for a snippet. Create the file once in the `snippets/` directory, import it wherever you need it, and updates propagate everywhere automatically.
+任何在多个页面重复出现的内容都适合提取为 snippet。在 `snippets/` 目录中创建一次文件，在需要的地方导入，更新会自动同步到所有引用处。
 
 <Note>
-  Files inside `snippets/` are not rendered as standalone pages. They only appear where you import them.
+  `snippets/` 目录中的文件不会被渲染为独立页面，它们只会在被导入的地方显示。
 </Note>
 
-## Content snippets
+## 内容片段
 
-The simplest pattern: write MDX content in a snippet file and import it as a component.
+最简单的用法：在 snippet 文件中编写 MDX 内容，并作为组件导入。
 
 ```mdx snippets/prerequisites.mdx
 Before you begin, make sure you have:
@@ -20,7 +20,7 @@ Before you begin, make sure you have:
 - An API key from your [dashboard](https://dashboard.example.com)
 ```
 
-Import it into any page using a root-relative path:
+使用根相对路径将其导入任意页面：
 
 ```mdx your-page.mdx
 ---
@@ -35,49 +35,49 @@ import Prerequisites from '/snippets/prerequisites.mdx';
 ...
 ```
 
-You can also use relative imports, which enables CMD+click navigation to the snippet in your editor:
+也可以使用相对路径导入，这样可以在编辑器中通过 CMD+点击跳转到 snippet 文件：
 
 ```mdx
 import Prerequisites from '../snippets/prerequisites.mdx';
 ```
 
-## Variable snippets
+## 变量片段
 
-Export named constants from a snippet file to reuse values like product names, version numbers, or URLs.
+从 snippet 文件中导出具名常量，以复用产品名称、版本号或 URL 等值。
 
 ```mdx snippets/vars.mdx
 export const sdkVersion = '3.2.0';
 export const baseUrl = 'https://api.example.com/v1';
 ```
 
-Import and use them inline:
+导入后可在行内使用：
 
 ```mdx your-page.mdx
 import { sdkVersion, baseUrl } from '/snippets/vars.mdx';
 
-The current SDK version is **{sdkVersion}**.
+当前 SDK 版本为 **{sdkVersion}**。
 
-All requests go to `{baseUrl}`.
+所有请求发送至 `{baseUrl}`。
 ```
 
-## Component snippets
+## 组件片段
 
-For snippets that need to vary based on where they're used, export an arrow function component that accepts props.
+对于需要根据使用位置动态变化的 snippet，可以导出一个接受 props 的箭头函数组件。
 
 ```mdx snippets/endpoint-note.mdx
 export const EndpointNote = ({ method, path }) => (
   <Note>
-    This guide covers the <code>{method} {path}</code> endpoint.
-    See the <a href="/api-reference/introduction">API reference</a> for full details.
+    本指南介绍 <code>{method} {path}</code> 端点。
+    完整详情请参阅 <a href="/api-reference/introduction">API 参考</a>。
   </Note>
 );
 ```
 
-* Use arrow function syntax (`const Foo = () => ...`).
-* The `function` keyword is not supported in snippet files.
-* MDX syntax doesn't compile inside arrow function bodies. Use plain HTML tags there, or use a default export instead.
+* 使用箭头函数语法（`const Foo = () => ...`）。
+* snippet 文件中不支持 `function` 关键字。
+* MDX 语法无法在箭头函数体内编译，请在其中使用纯 HTML 标签，或改用默认导出。
 
-Pass props when you render it:
+渲染时传入 props：
 
 ```mdx your-page.mdx
 import { EndpointNote } from '/snippets/endpoint-note.mdx';
@@ -85,16 +85,16 @@ import { EndpointNote } from '/snippets/endpoint-note.mdx';
 <EndpointNote method="POST" path="/v1/users" />
 ```
 
-## Snippets importing snippets
+## Snippet 嵌套导入
 
-Snippets can import other snippets, which is useful for composing larger shared sections from smaller pieces.
+Snippet 可以导入其他 snippet，适合将较大的共享章节拆分为更小的片段组合。
 
 ```mdx snippets/auth-intro.mdx
 import AuthNote from '/snippets/auth-note.mdx';
 
-## Authentication
+## 认证
 
-All endpoints require a bearer token.
+所有端点都需要 bearer token。
 
 <AuthNote />
 ```

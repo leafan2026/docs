@@ -1,32 +1,32 @@
 ---
-title: 'Visibility'
-description: 'Show different content to humans and AI agents'
+title: '可见性控制'
+description: '向人类读者和 AI Agent 展示不同的内容'
 icon: 'eye'
 ---
 
-The `Visibility` component lets a single page serve two audiences: humans reading on the web and AI agents processing the Markdown output. Content marked `for="humans"` appears on the rendered page but is excluded from Markdown exports. Content marked `for="agents"` is hidden on the web but included in Markdown.
+`Visibility` 组件让单个页面同时服务于两类受众：在网页上阅读的人类用户，以及处理 Markdown 输出的 AI Agent。标记为 `for="humans"` 的内容会显示在渲染页面上，但不会包含在 Markdown 导出中；标记为 `for="agents"` 的内容则在网页上隐藏，但会包含在 Markdown 中。
 
-This means you can write conversational, UI-centric instructions for humans and structured, machine-readable instructions for AI — without maintaining two separate pages.
+这意味着您可以为人类编写对话式、以 UI 为中心的说明，同时为 AI 编写结构化、机器可读的指令——无需维护两个独立的页面。
 
-## How it works
+## 工作原理
 
-Mintlify serves every page at two URLs:
+Mintlify 为每个页面提供两个 URL：
 
-- `https://docs.example.com/page` — the rendered site, for humans
-- `https://docs.example.com/page.md` — the raw Markdown, for AI agents
+- `https://docs.example.com/page` — 渲染后的站点，供人类阅读
+- `https://docs.example.com/page.md` — 原始 Markdown，供 AI Agent 处理
 
-`Visibility` controls what appears at each URL.
+`Visibility` 控制每个 URL 显示的内容。
 
-## Example
+## 示例
 
 ```mdx
 <Visibility for="humans">
   <Steps>
-    <Step title="Open the dashboard">
-      Navigate to [dashboard.example.com](https://dashboard.example.com) and sign in.
+    <Step title="打开仪表盘">
+      访问 [dashboard.example.com](https://dashboard.example.com) 并登录。
     </Step>
-    <Step title="Create an API key">
-      Go to **Settings → API Keys** and click **New key**.
+    <Step title="创建 API Key">
+      进入 **设置 → API Keys**，点击 **新建密钥**。
     </Step>
   </Steps>
 </Visibility>
@@ -39,46 +39,46 @@ Mintlify serves every page at two URLs:
 </Visibility>
 ```
 
-Human readers see the step-by-step UI walkthrough. AI agents processing the Markdown get the direct API instructions instead.
+人类读者看到的是分步 UI 操作指引，而处理 Markdown 的 AI Agent 获取的是直接的 API 调用说明。
 
 ## Props
 
 <ResponseField name="for" type='"humans" | "agents"' required>
-  - `"humans"` — visible on the rendered web page, excluded from `.md` export
-  - `"agents"` — hidden on the rendered web page, included in `.md` export
+  - `"humans"` — 在渲染的网页上可见，不包含在 `.md` 导出中
+  - `"agents"` — 在渲染的网页上隐藏，包含在 `.md` 导出中
 </ResponseField>
 
-## When to use it
+## 使用场景
 
 <Columns cols={2}>
-  <Card title="Onboarding flows" icon="person-walking-arrow-right">
-    Show UI screenshots and button clicks to humans. Give agents the equivalent API calls.
+  <Card title="新手引导流程" icon="person-walking-arrow-right">
+    向人类展示 UI 截图和按钮操作，向 Agent 提供等效的 API 调用。
   </Card>
-  <Card title="Configuration guides" icon="sliders">
-    Show a visual settings panel to humans. Give agents the equivalent JSON or CLI flags.
+  <Card title="配置指南" icon="sliders">
+    向人类展示可视化设置面板，向 Agent 提供等效的 JSON 或 CLI 参数。
   </Card>
-  <Card title="Error messages" icon="triangle-exclamation">
-    Show a friendly explanation to humans. Give agents structured error codes and remediation steps.
+  <Card title="错误信息" icon="triangle-exclamation">
+    向人类展示友好的说明，向 Agent 提供结构化的错误代码和修复步骤。
   </Card>
-  <Card title="Conceptual pages" icon="lightbulb">
-    Include rich diagrams and narrative for humans. Provide a concise structured summary for agents.
+  <Card title="概念性页面" icon="lightbulb">
+    为人类提供丰富的图表和叙述，为 Agent 提供简洁的结构化摘要。
   </Card>
 </Columns>
 
-## Combining with Prompt
+## 与 Prompt 组合使用
 
-`Visibility` and `Prompt` complement each other well. Use `Visibility` to give agents structured context, then use `Prompt` to give human readers a prompt they can use to ask an AI about that same content.
+`Visibility` 和 `Prompt` 可以很好地配合使用。用 `Visibility` 为 Agent 提供结构化上下文，再用 `Prompt` 为人类读者提供一个可向 AI 提问相关内容的 prompt。
 
 ```mdx
 <Visibility for="agents">
-  ## Authentication schema
-  - Method: Bearer token
-  - Header: `Authorization: Bearer <token>`
-  - Token TTL: 86400 seconds
-  - Refresh endpoint: POST /v1/auth/refresh
+  ## 认证方案
+  - 方式：Bearer token
+  - Header：`Authorization: Bearer <token>`
+  - Token 有效期：86400 秒
+  - 刷新端点：POST /v1/auth/refresh
 </Visibility>
 
-<Prompt description="Ask about authentication" icon="lock">
+<Prompt description="询问认证相关问题" icon="lock">
   Explain how authentication works in this API and show me example code for
   getting a token and making an authenticated request.
 </Prompt>

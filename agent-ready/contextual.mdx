@@ -1,12 +1,12 @@
 ---
-title: 'Contextual menu'
-description: 'Give readers one-click access to AI tools and integrations'
+title: '上下文菜单'
+description: '让读者一键访问 AI 工具和集成服务'
 icon: 'bolt'
 ---
 
-The contextual toolbar is a floating action bar that appears on every page of your docs. It lets readers instantly copy page content, open it in an AI assistant, or add your docs as an MCP server — without leaving the page.
+上下文工具栏是一个悬浮操作栏，显示在文档的每个页面上。它让读者无需离开页面，即可立即复制页面内容、在 AI 助手中打开，或将文档添加为 MCP 服务器。
 
-Configure it in `docs.json` under `contextual.options`:
+在 `docs.json` 的 `contextual.options` 中进行配置：
 
 ```json docs.json
 {
@@ -16,54 +16,54 @@ Configure it in `docs.json` under `contextual.options`:
 }
 ```
 
-## Available options
+## 可用选项
 
-### Content actions
+### 内容操作
 
-| Option | Description |
+| 选项 | 说明 |
 |--------|-------------|
-| `copy` | Copies the page as Markdown to the clipboard |
-| `view` | Opens the raw Markdown version of the page (`.md` URL) |
+| `copy` | 将页面以 Markdown 格式复制到剪贴板 |
+| `view` | 打开页面的原始 Markdown 版本（`.md` URL） |
 
-### AI assistants
+### AI 助手
 
-| Option | Description |
+| 选项 | 说明 |
 |--------|-------------|
-| `claude` | Opens the page in Claude |
-| `chatgpt` | Opens the page in ChatGPT |
-| `perplexity` | Opens the page in Perplexity |
-| `grok` | Opens the page in Grok |
-| `aistudio` | Opens the page in Google AI Studio |
+| `claude` | 在 Claude 中打开该页面 |
+| `chatgpt` | 在 ChatGPT 中打开该页面 |
+| `perplexity` | 在 Perplexity 中打开该页面 |
+| `grok` | 在 Grok 中打开该页面 |
+| `aistudio` | 在 Google AI Studio 中打开该页面 |
 
-### Editor integrations
+### 编辑器集成
 
-| Option | Description |
+| 选项 | 说明 |
 |--------|-------------|
-| `cursor` | Adds the page to Cursor's context |
-| `vscode` | Adds the page to VS Code Copilot |
-| `windsurf` | Adds the page to Windsurf's Cascade |
-| `devin` | Opens the page in Devin |
+| `cursor` | 将该页面添加到 Cursor 的上下文 |
+| `vscode` | 将该页面添加到 VS Code Copilot |
+| `windsurf` | 将该页面添加到 Windsurf 的 Cascade |
+| `devin` | 在 Devin 中打开该页面 |
 
 ### MCP
 
-| Option | Description |
+| 选项 | 说明 |
 |--------|-------------|
-| `mcp` | Shows instructions for using your docs as an MCP server |
-| `add-mcp` | Provides a one-click prompt to add your docs MCP server to an AI tool |
+| `mcp` | 显示将文档用作 MCP 服务器的说明 |
+| `add-mcp` | 提供一键提示，将文档 MCP 服务器添加到 AI 工具中 |
 
 <Tip>
-  The `mcp` and `add-mcp` options are especially powerful — they let developers connect your entire docs site to any MCP-compatible AI assistant, so it can answer questions about your product directly.
+  `mcp` 和 `add-mcp` 选项尤为强大——它们让开发者可以将您的整个文档站点连接到任何兼容 MCP 的 AI 助手，使其能够直接回答关于您产品的问题。
 </Tip>
 
-## Custom options
+## 自定义选项
 
-You can add custom entries to the toolbar with a title, description, icon, and link. The `href` supports dynamic placeholders:
+您可以在工具栏中添加带有标题、描述、图标和链接的自定义条目。`href` 支持动态占位符：
 
-| Placeholder | Resolves to |
+| 占位符 | 解析为 |
 |-------------|-------------|
-| `$page` | The current page's full URL |
-| `$path` | The current page's path |
-| `$mcp` | Your docs MCP server URL |
+| `$page` | 当前页面的完整 URL |
+| `$path` | 当前页面的路径 |
+| `$mcp` | 您的文档 MCP 服务器 URL |
 
 ```json docs.json
 {
@@ -72,8 +72,8 @@ You can add custom entries to the toolbar with a title, description, icon, and l
       "copy",
       "claude",
       {
-        "title": "Open issue",
-        "description": "Report a problem with this page",
+        "title": "提交 Issue",
+        "description": "报告此页面的问题",
         "icon": "github",
         "href": "https://github.com/your-org/docs/issues/new?title=Issue+on+$path"
       }
@@ -83,9 +83,9 @@ You can add custom entries to the toolbar with a title, description, icon, and l
 ```
 
 <Note>
-  The contextual toolbar is only visible on preview and production deployments, not in `mint dev` local preview.
+  上下文工具栏仅在预览和生产部署中可见，在 `mint dev` 本地预览中不显示。
 </Note>
 
-## Pairing with Visibility
+## 与 Visibility 搭配使用
 
-The toolbar's `copy` and `view` options expose your page's Markdown content directly. If you use the [`Visibility`](/agent-ready/visibility) component, the `for="agents"` blocks will be included in that Markdown — giving AI assistants structured context that human readers don't see.
+工具栏的 `copy` 和 `view` 选项会直接暴露页面的 Markdown 内容。如果您使用了 [`Visibility`](/agent-ready/visibility) 组件，`for="agents"` 中的内容块将包含在该 Markdown 中——为 AI 助手提供人类读者看不到的结构化上下文。

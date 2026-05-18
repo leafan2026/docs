@@ -1,31 +1,31 @@
 ---
-title: 'Prompt component'
-description: 'Embed shareable AI prompts readers can copy or open in Cursor'
+title: 'Prompt 组件'
+description: '嵌入可分享的 AI prompt，读者可一键复制或在 Cursor 中打开'
 icon: 'robot'
 ---
 
-The `Prompt` component displays a pre-built AI prompt with one-click actions to copy it to the clipboard or open it directly in Cursor. It's ideal for any docs page where you want to hand readers a ready-to-use prompt.
+`Prompt` 组件展示一个预构建的 AI prompt，并提供一键复制到剪贴板或直接在 Cursor 中打开的操作按钮。适合在任何文档页面中为读者提供即用型 prompt。
 
-## Basic usage
+## 基本用法
 
-<Prompt description="Summarize this API endpoint">
+<Prompt description="总结此 API 端点">
 You are a technical writer. Given the following API endpoint documentation, write a one-paragraph summary that explains what the endpoint does, what inputs it requires, and what it returns. Be concise and use plain language.
 </Prompt>
 
 ```mdx
-<Prompt description="Summarize this API endpoint">
+<Prompt description="总结此 API 端点">
 You are a technical writer. Given the following API endpoint documentation,
 write a one-paragraph summary that explains what the endpoint does, what
 inputs it requires, and what it returns. Be concise and use plain language.
 </Prompt>
 ```
 
-## With Cursor integration
+## 与 Cursor 集成
 
-Add `actions={["copy", "cursor"]}` to also surface an "Open in Cursor" button. This is especially useful for prompts readers will use in their editor.
+添加 `actions={["copy", "cursor"]}` 可同时显示"在 Cursor 中打开"按钮，非常适合读者在编辑器中使用的 prompt。
 
 <Prompt
-  description="Generate a typed API client"
+  description="生成类型化 API 客户端"
   icon="code"
   actions={["copy", "cursor"]}
 >
@@ -38,7 +38,7 @@ Do not use any third-party HTTP libraries.
 
 ```mdx
 <Prompt
-  description="Generate a typed API client"
+  description="生成类型化 API 客户端"
   icon="code"
   actions={["copy", "cursor"]}
 >
@@ -50,26 +50,26 @@ specification, generate a fully-typed API client using native fetch...
 ## Props
 
 <ResponseField name="description" type="string" required>
-  Heading text shown above the prompt content. Supports Markdown.
+  显示在 prompt 内容上方的标题文字，支持 Markdown。
 </ResponseField>
 
 <ResponseField name="children" type="string" required>
-  The prompt text that gets copied or sent to Cursor.
+  被复制或发送到 Cursor 的 prompt 文本。
 </ResponseField>
 
 <ResponseField name="actions" type="array">
-  Which action buttons to show. Options: `"copy"`, `"cursor"`. Defaults to `["copy"]`.
+  要显示的操作按钮。可选值：`"copy"`、`"cursor"`。默认为 `["copy"]`。
 </ResponseField>
 
 <ResponseField name="icon" type="string">
-  An icon displayed alongside the description. Supports Font Awesome, Lucide, and Tabler icon names, image URLs, or inline SVG.
+  显示在描述旁的图标，支持 Font Awesome、Lucide 和 Tabler 图标名称、图片 URL 或内联 SVG。
 </ResponseField>
 
-## When to use it
+## 使用场景
 
-The `Prompt` component works well anywhere you're teaching readers to work with AI:
+`Prompt` 组件适用于任何需要引导读者与 AI 协作的文档页面：
 
-- **Quickstart guides** — give readers a prompt to generate their first integration
-- **API reference pages** — include a prompt for generating client code from the spec
-- **Troubleshooting guides** — embed a debugging prompt readers can run against their own error logs
-- **Conceptual pages** — add a prompt for exploring the topic further with an AI assistant
+- **快速入门指南** — 为读者提供一个生成首个集成方案的 prompt
+- **API 参考页面** — 包含一个根据规范生成客户端代码的 prompt
+- **故障排查指南** — 嵌入一个调试 prompt，读者可针对自己的错误日志运行
+- **概念性页面** — 添加一个供读者用 AI 助手深入探索该主题的 prompt

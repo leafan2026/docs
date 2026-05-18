@@ -1,14 +1,14 @@
 ---
-title: 'Configuration'
-description: 'Customize your site with the `docs.json` file'
+title: '配置'
+description: '通过 `docs.json` 文件自定义您的站点'
 icon: 'gear'
 ---
 
-Every Mintlify site is configured through a `docs.json` file in your project root. Changes take effect immediately in local preview.
+每个 Mintlify 站点都通过项目根目录下的 `docs.json` 文件进行配置。更改在本地预览中立即生效。
 
-## Identity
+## 身份标识
 
-Set the name, theme, and visual identity of your site.
+设置站点的名称、主题和视觉风格。
 
 ```json docs.json
 {
@@ -23,26 +23,26 @@ Set the name, theme, and visual identity of your site.
 ```
 
 <ResponseField name="name" type="string" required>
-  Your project name. Appears in the browser tab title and site metadata.
+  项目名称，显示在浏览器标签标题和站点元数据中。
 </ResponseField>
 
 <ResponseField name="theme" type="string">
-  The visual theme. Options: `mint`, `maple`, `willow`, `sequoia`, `prism`.
+  视觉主题。可选值：`mint`、`maple`、`willow`、`sequoia`、`prism`。
 </ResponseField>
 
 <ResponseField name="favicon" type="string">
-  Path to your favicon. SVG recommended for crisp rendering at all sizes.
+  favicon 路径。推荐使用 SVG 格式，确保在各种尺寸下都清晰显示。
 </ResponseField>
 
 <ResponseField name="logo" type="object">
   <Expandable title="Logo">
-    <ResponseField name="light" type="string">Logo shown in light mode.</ResponseField>
-    <ResponseField name="dark" type="string">Logo shown in dark mode.</ResponseField>
-    <ResponseField name="href" type="string" default="/">URL the logo links to.</ResponseField>
+    <ResponseField name="light" type="string">浅色模式下显示的 logo。</ResponseField>
+    <ResponseField name="dark" type="string">深色模式下显示的 logo。</ResponseField>
+    <ResponseField name="href" type="string" default="/">logo 链接的 URL。</ResponseField>
   </Expandable>
 </ResponseField>
 
-## Colors
+## 颜色
 
 ```json docs.json
 {
@@ -55,28 +55,28 @@ Set the name, theme, and visual identity of your site.
 ```
 
 <ResponseField name="colors.primary" type="string" required>
-  Primary brand color. Used for highlights, active states, and accents in light mode.
+  主品牌色，用于浅色模式下的高亮、激活状态和强调色。
 </ResponseField>
 
 <ResponseField name="colors.light" type="string">
-  Primary color for dark mode.
+  深色模式下的主色调。
 </ResponseField>
 
 <ResponseField name="colors.dark" type="string">
-  Used for buttons and important interactive elements.
+  用于按钮和重要交互元素。
 </ResponseField>
 
 <ResponseField name="colors.background" type="object">
-  Override the default page background color.
-  <Expandable title="Background">
-    <ResponseField name="light" type="string">Background hex color in light mode.</ResponseField>
-    <ResponseField name="dark" type="string">Background hex color in dark mode.</ResponseField>
+  覆盖默认页面背景色。
+  <Expandable title="背景">
+    <ResponseField name="light" type="string">浅色模式下的背景十六进制颜色。</ResponseField>
+    <ResponseField name="dark" type="string">深色模式下的背景十六进制颜色。</ResponseField>
   </Expandable>
 </ResponseField>
 
-## Navbar
+## 顶部导航栏
 
-Configure the top navigation bar links and primary call-to-action.
+配置顶部导航栏链接和主要行动按钮。
 
 ```json docs.json
 {
@@ -94,27 +94,27 @@ Configure the top navigation bar links and primary call-to-action.
 ```
 
 <ResponseField name="navbar.links" type="array">
-  Text links displayed in the top navigation bar.
+  显示在顶部导航栏的文字链接。
   <Expandable title="Link">
-    <ResponseField name="label" type="string">Display text for the link.</ResponseField>
-    <ResponseField name="href" type="string">URL the link points to.</ResponseField>
+    <ResponseField name="label" type="string">链接的显示文字。</ResponseField>
+    <ResponseField name="href" type="string">链接指向的 URL。</ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="navbar.primary" type="object">
-  The prominent call-to-action in the top-right corner.
+  右上角的主要行动按钮。
   <Expandable title="Primary">
     <ResponseField name="type" type='"button" | "github"'>
-      `button` renders a CTA button. `github` renders a star count badge.
+      `button` 渲染为 CTA 按钮，`github` 渲染为 Star 数量徽章。
     </ResponseField>
-    <ResponseField name="label" type="string">Button label. Required when type is `button`.</ResponseField>
-    <ResponseField name="href" type="string">URL the button or badge links to.</ResponseField>
+    <ResponseField name="label" type="string">按钮标签，type 为 `button` 时必填。</ResponseField>
+    <ResponseField name="href" type="string">按钮或徽章链接的 URL。</ResponseField>
   </Expandable>
 </ResponseField>
 
-## Navigation
+## 导航
 
-Organize your pages into tabs and groups. See the [Navigation](/essentials/navigation) guide for full details.
+将页面组织到标签页和分组中。完整详情请参阅[导航](/essentials/navigation)指南。
 
 ```json docs.json
 {
@@ -143,9 +143,9 @@ Organize your pages into tabs and groups. See the [Navigation](/essentials/navig
 }
 ```
 
-## Contextual toolbar
+## 上下文工具栏
 
-The contextual toolbar floats on every page and gives readers one-click access to AI tools and integrations. See [Contextual toolbar](/agent-ready/contextual) for the full list of options.
+上下文工具栏悬浮在每个页面上，让读者一键访问 AI 工具和集成服务。完整选项列表请参阅[上下文工具栏](/agent-ready/contextual)。
 
 ```json docs.json
 {
@@ -155,7 +155,7 @@ The contextual toolbar floats on every page and gives readers one-click access t
 }
 ```
 
-## Footer
+## 页脚
 
 ```json docs.json
 {
@@ -170,5 +170,5 @@ The contextual toolbar floats on every page and gives readers one-click access t
 ```
 
 <ResponseField name="footer.socials" type="object">
-  Social links shown in the footer. Supported keys: `x`, `github`, `linkedin`, `discord`, `slack`, `facebook`, `instagram`, `website`.
+  显示在页脚的社交链接。支持的键名：`x`、`github`、`linkedin`、`discord`、`slack`、`facebook`、`instagram`、`website`。
 </ResponseField>

@@ -1,101 +1,101 @@
 ---
-title: 'Components'
-description: 'Callouts, cards, steps, tabs, and more'
+title: '组件'
+description: '提示框、卡片、步骤、标签页等更多组件'
 icon: 'puzzle-piece'
 ---
 
-Mintlify components let you build rich, interactive documentation pages using MDX. Here are some commonly used ones.
+Mintlify 组件让您可以使用 MDX 构建丰富的交互式文档页面。以下是一些常用组件。
 
-See the [components overview](https://mintlify.com/docs/components) in the Mintlify documentation for a complete list.
+完整组件列表请参阅 Mintlify 文档中的[组件概览](https://mintlify.com/docs/components)。
 
-## Callouts
+## 提示框
 
-Use callouts to draw attention to important information.
+使用提示框来吸引读者注意重要信息。
 
-<Note>A **Note** is for general information that helps the reader.</Note>
+<Note>**Note** 用于提供帮助读者的通用信息。</Note>
 
-<Tip>A **Tip** highlights a helpful shortcut or best practice.</Tip>
+<Tip>**Tip** 用于强调有用的快捷方式或最佳实践。</Tip>
 
-<Warning>A **Warning** flags something that could cause problems.</Warning>
+<Warning>**Warning** 用于标记可能引发问题的内容。</Warning>
 
-<Info>An **Info** callout provides supplementary context.</Info>
+<Info>**Info** 提示框提供补充说明。</Info>
 
 ```mdx
-<Note>A **Note** is for general information that helps the reader.</Note>
+<Note>**Note** 用于提供帮助读者的通用信息。</Note>
 
-<Tip>A **Tip** highlights a helpful shortcut or best practice.</Tip>
+<Tip>**Tip** 用于强调有用的快捷方式或最佳实践。</Tip>
 
-<Warning>A **Warning** flags something that could cause problems.</Warning>
+<Warning>**Warning** 用于标记可能引发问题的内容。</Warning>
 
-<Info>An **Info** callout provides supplementary context.</Info>
+<Info>**Info** 提示框提供补充说明。</Info>
 ```
 
-## Cards
+## 卡片
 
-Cards link readers to other pages or resources.
+卡片用于将读者链接到其他页面或资源。
 
 <Columns cols={2}>
-  <Card title="API Reference" icon="terminal" href="/api-reference/introduction">
-    Auto-generated docs from your OpenAPI spec.
+  <Card title="API 参考" icon="terminal" href="/api-reference/introduction">
+    从您的 OpenAPI 规范自动生成文档。
   </Card>
-  <Card title="Quickstart" icon="rocket" href="/quickstart">
-    Get your docs running in three steps.
+  <Card title="快速入门" icon="rocket" href="/quickstart">
+    三步启动您的文档。
   </Card>
 </Columns>
 
 ```mdx
 <Columns cols={2}>
-  <Card title="API Reference" icon="terminal" href="/api-reference/introduction">
-    Auto-generated docs from your OpenAPI spec.
+  <Card title="API 参考" icon="terminal" href="/api-reference/introduction">
+    从您的 OpenAPI 规范自动生成文档。
   </Card>
-  <Card title="Quickstart" icon="rocket" href="/quickstart">
-    Get your docs running in three steps.
+  <Card title="快速入门" icon="rocket" href="/quickstart">
+    三步启动您的文档。
   </Card>
 </Columns>
 ```
 
-Use `<Columns cols={N}>` to control the grid width. Cards without `href` render as informational panels.
+使用 `<Columns cols={N}>` 控制网格宽度。没有 `href` 的卡片将作为信息面板渲染。
 
-## Steps
+## 步骤
 
-Steps present numbered procedures clearly.
+步骤组件用于清晰展示编号流程。
 
 <Steps>
-  <Step title="Install the package">
+  <Step title="安装包">
     ```bash
     npm install my-package
     ```
   </Step>
-  <Step title="Initialize">
-    Run the init command in your project root.
+  <Step title="初始化">
+    在项目根目录运行初始化命令。
     ```bash
     npx my-package init
     ```
   </Step>
-  <Step title="You're ready">
-    Start using the package in your code.
+  <Step title="准备就绪">
+    开始在代码中使用该包。
   </Step>
 </Steps>
 
 ````mdx
 <Steps>
-  <Step title="Install the package">
+  <Step title="安装包">
     ```bash
     npm install my-package
     ```
   </Step>
-  <Step title="Initialize">
-    Run the init command in your project root.
+  <Step title="初始化">
+    在项目根目录运行初始化命令。
   </Step>
-  <Step title="You're ready">
-    Start using the package in your code.
+  <Step title="准备就绪">
+    开始在代码中使用该包。
   </Step>
 </Steps>
 ````
 
-## Tabs
+## 标签页
 
-Tabs let readers switch between alternative content — different languages, environments, or platforms.
+标签页让读者在不同内容间切换——适合展示不同语言、环境或平台的版本。
 
 <Tabs>
   <Tab title="npm">
@@ -135,47 +135,47 @@ Tabs let readers switch between alternative content — different languages, env
 </Tabs>
 ````
 
-## Accordions
+## 折叠面板
 
-Accordions collapse content behind a toggle — useful for FAQs or optional detail.
+折叠面板将内容隐藏在开关后——适用于 FAQ 或可选的详细信息。
 
 <AccordionGroup>
-  <Accordion title="What does this product do?">
-    A brief answer to the first question. Keep it concise.
+  <Accordion title="这个产品是做什么的？">
+    第一个问题的简短回答，保持简洁。
   </Accordion>
-  <Accordion title="How is pricing calculated?">
-    Another answer here. Use as much space as you need.
+  <Accordion title="定价是如何计算的？">
+    第二个答案。使用所需的空间来说明。
   </Accordion>
 </AccordionGroup>
 
 ```mdx
 <AccordionGroup>
-  <Accordion title="What does this product do?">
-    A brief answer to the first question.
+  <Accordion title="这个产品是做什么的？">
+    第一个问题的简短回答。
   </Accordion>
-  <Accordion title="How is pricing calculated?">
-    Another answer here.
+  <Accordion title="定价是如何计算的？">
+    第二个答案。
   </Accordion>
 </AccordionGroup>
 ```
 
-## Frames
+## 框架
 
-Wrap images or other content in a `Frame` to add a styled border and rounded corners.
+将图片或其他内容包裹在 `Frame` 中，可添加带样式的边框和圆角。
 
 <Frame>
-  <img src="https://mintlify-assets.b-cdn.net/bigbend.jpg" alt="Big Bend landscape" />
+  <img src="https://mintlify-assets.b-cdn.net/bigbend.jpg" alt="大弯曲风景" />
 </Frame>
 
 ```mdx
 <Frame>
-  <img src="/images/screenshot.png" alt="App screenshot" />
+  <img src="/images/screenshot.png" alt="应用截图" />
 </Frame>
 ```
 
-## Code groups
+## 代码组
 
-`CodeGroup` displays multiple code snippets as tabs — ideal for showing the same example in multiple languages.
+`CodeGroup` 以标签页形式展示多个代码片段——非常适合用多种语言展示同一示例。
 
 <CodeGroup>
   ```typescript TypeScript
