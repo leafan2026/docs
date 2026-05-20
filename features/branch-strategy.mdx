@@ -1,0 +1,29 @@
+---
+title: "分支管理策略"
+description: "团队协作中常用的分支命名规范和管理方式"
+icon: "code-branch"
+---
+
+## 常见分支类型
+
+| 分支名 | 用途 |
+|--------|------|
+| `main` | 主分支，随时可发布的稳定版本 |
+| `develop` | 开发主线，功能开发完成后合并到此 |
+| `feature/xxx` | 新功能开发，完成后合并到 develop |
+| `fix/xxx` | Bug 修复分支 |
+| `hotfix/xxx` | 紧急修复，直接从 main 拉出修复后合并回 main |
+
+## 操作原则
+
+- 每个功能开一个独立分支，不要在 `main` 上直接开发
+- 分支完成后及时发 PR，不要积压太久
+- 合并后删除已用完的分支
+
+## 命名建议
+
+```
+feature/sms-notification     # 新增短信通知
+fix/login-redirect-error     # 修复登录跳转问题
+docs/update-pr-guide         # 更新 PR 文档
+```
