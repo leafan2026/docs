@@ -52,7 +52,8 @@
           {
             "group": "金数据帮助中心",
             "pages": [
-              "features/sms"
+              "features/sms",
+              "features/pull-request"
             ]
           }
         ]

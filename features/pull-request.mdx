@@ -1,0 +1,160 @@
+---
+title: "提交 Pull Request（合并申请）"
+description: "向分支推送多条提交后，如何在 GitHub 上发起 Pull Request，请求将代码合并到主分支"
+icon: "code-pull-request"
+---
+
+## 什么是 Pull Request？
+
+**Pull Request**（简称 PR，也叫合并申请）是 GitHub 的协作机制。当你在自己的分支上完成开发、推送到远程后，通过 PR 通知团队：「我的代码准备好了，请审查并合并到主分支」。
+
+<Info>
+  PR 是代码合并的入口，也是 Code Review 的主要场所。无论你推送了 1 条还是 24 条提交，创建 PR 的流程完全一样。
+</Info>
+
+---
+
+## 第一步：进入创建 PR 页面
+
+有两种入口，任选一个：
+
+### 方式 A：点击仓库顶部的提示横幅（最快）
+
+推送分支后，打开 GitHub 仓库主页，顶部会出现一条**黄色横幅**，提示你的分支有新推送。
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/step-1-banner.png"
+  alt="GitHub 仓库主页顶部出现分支最近有推送的提示横幅，右侧有 Compare & pull request 按钮"
+/>
+
+点击横幅右侧的绿色 **Compare & pull request** 按钮，直接进入 PR 创建页面。
+
+<Tip>
+  这条横幅只会在推送后短暂显示。如果页面已刷新或时间过长导致横幅消失，使用下面的方式 B。
+</Tip>
+
+### 方式 B：通过 Pull requests 标签手动创建
+
+1. 点击仓库顶部导航栏的 **Pull requests** 标签
+2. 点击右侧绿色的 **New pull request** 按钮
+3. 在下拉框中选择你要合并的分支
+
+---
+
+## 第二步：确认分支方向
+
+进入创建页面后，首先检查页面顶部的**分支选择区域**：
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/step-2-form.png"
+  alt="PR 创建页面，顶部显示 base: main ← compare: hjj，以及 Able to merge 的绿色提示"
+/>
+
+| 字段 | 含义 |
+|------|------|
+| **base** | 目标分支，代码要合并**到**哪里（通常是 `main` 或 `develop`） |
+| **compare** | 来源分支，你推送代码的那个分支 |
+
+确认方向为 `base: main ← compare: 你的分支名`，且右侧显示绿色 ✅ **Able to merge**，表示无冲突、可以直接合并。
+
+<Warning>
+  如果显示 ❌ **Can't automatically merge**，说明有冲突，需要先在本地解决冲突再推送。
+</Warning>
+
+---
+
+## 第三步：填写 PR 标题和描述
+
+在分支选择区域下方填写 PR 的基本信息：
+
+- **Title（标题）**：简洁说明本次 PR 的目的，例如：`feat: 新增短信通知功能` 或 `批量完善图片 alt 标记（第 1-24 批）`
+- **Description（描述）**：说明改动内容、覆盖范围、测试情况，方便审查者快速理解
+
+描述示例：
+
+```markdown
+## 改动内容
+- 新增演示页面 demo.mdx
+- 补充更新说明章节
+
+## 测试
+- 已在本地预览环境验证
+```
+
+<Tip>
+  描述不是必填项，但**强烈建议填写**——尤其是当你有大量提交时，好的描述能大幅降低 Review 成本。
+</Tip>
+
+---
+
+## 第四步：提交 PR
+
+填写完成后，点击页面右下角的绿色 **Create pull request** 按钮。
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/step-3-dropdown.png"
+  alt="Create pull request 按钮以及展开的下拉菜单，显示 Create pull request 和 Create draft pull request 两个选项"
+/>
+
+点击按钮旁的**下拉箭头**，会出现两个选项：
+
+| 选项 | 适用场景 |
+|------|---------|
+| **Create pull request** | 代码已完成，可以立即被 Review 和合并 |
+| **Create draft pull request** | 代码还在开发中，暂不希望被 Review，先占位 |
+
+<Info>
+  草稿 PR（Draft）可以随时切换为正式 PR，不影响后续流程。
+</Info>
+
+---
+
+## 第五步：查看 PR 包含的提交
+
+在创建页面向下滚动，可以看到本次 PR 包含的所有提交列表和文件变更情况。
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/step-4-commits.png"
+  alt="PR 创建页面下方展示的提交列表，列出了本次 PR 包含的所有 commit"
+/>
+
+页面底部会显示本次 PR 共包含多少条提交（如 **2 commits**）和涉及多少个文件（如 **1 file changed**）。即使你分批推送了 24 次，这里也会把所有提交完整列出。
+
+---
+
+## 创建成功后
+
+PR 创建完毕后，页面跳转至 PR 详情页：
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/step-5-created.png"
+  alt="PR 创建成功后的详情页，显示 PR 标题、状态、提交列表和右侧的 Reviewers 等设置项"
+/>
+
+此时你可以：
+
+- 复制 PR 页面链接，发给团队成员请求 Review
+- 在右侧 **Reviewers** 栏指定审查人
+- 在右侧 **Labels** 栏为 PR 打标签（如 `feature`、`bugfix`）
+- 等待 CI/CD 自动检查运行完毕
+
+---
+
+## 审查通过后合并
+
+当审查人 Approve 且所有检查通过后，PR 页面底部会出现绿色的 **Merge pull request** 按钮：
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/step-6-merge.png"
+  alt="PR 审查通过后底部显示的绿色 Merge pull request 按钮"
+/>
+
+<Check>
+  合并完成后，GitHub 会提示你删除已合并的功能分支。建议点击删除，保持仓库分支整洁。
+</Check>
