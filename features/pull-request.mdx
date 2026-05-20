@@ -145,6 +145,76 @@ PR 创建完毕后，页面跳转至 PR 详情页：
 
 ---
 
+## 如何 Review 一个批量提交的 PR
+
+当一个 PR 包含大量提交时，Review 的重点不是逐条看每次提交，而是**看最终结果**。下面是审查者的完整操作流程。
+
+### 第一步：找到需要 Review 的 PR
+
+打开 GitHub 仓库，点击顶部导航栏的 **Pull requests** 标签，数字徽标表示当前待处理的 PR 数量。
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/review-Pull-requestsg.png"
+  alt="GitHub 仓库顶部导航栏，Pull requests 标签旁显示数字 1，表示有一个待处理的 PR"
+/>
+
+进入 PR 列表后，找到标注了 **Review required**（需要审查）的 PR，点击标题进入详情页。
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/review-pulls.png"
+  alt="PR 列表页，显示一条状态为 Open 且标注 Review required 的 PR"
+/>
+
+### 第二步：切换到"Files changed"标签
+
+进入 PR 详情页后，点击顶部的 **Files changed** 标签。
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/review-comment.png"
+  alt="PR 详情页顶部标签栏，Files changed 标签显示共有 12 个文件变更"
+/>
+
+<Info>
+  PR 详情页有四个标签：**Conversation**（讨论）、**Commits**（提交记录）、**Checks**（自动检查）、**Files changed**（文件变更）。Review 时重点看 **Files changed**，它汇总了所有文件的最终变动，不论这个 PR 有多少条提交。
+</Info>
+
+### 第三步：逐文件查看变更内容
+
+Files changed 页面左侧是**文件列表**，右侧是每个文件的 **diff（差异对比）**：绿色行（`+`）表示新增，红色行（`-`）表示删除。
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/review-files-changed-1.png"
+  alt="Files changed 页面，左侧为所有变更文件的列表，右侧展示选中文件的 diff 内容"
+/>
+
+点击左侧文件名可以快速跳转到对应文件的变更内容，逐一确认修改是否正确。
+
+### 第四步：提交 Review 结论
+
+看完所有文件后，点击页面右上角的绿色 **Review changes** 按钮，在弹出面板中选择结论并填写说明，再点 **Submit review**。
+
+<img
+  style={{ borderRadius: '0.5rem', border: '1px solid #e5e7eb' }}
+  src="/images/pr/review-submit.png"
+  alt="PR 详情页显示 Awaiting approval 状态，提示需要至少 1 位审查人批准后才能合并"
+/>
+
+| 选项 | 含义 | 何时使用 |
+|------|------|---------|
+| **Comment** | 只留下评论，不表态 | 有疑问但不阻塞合并 |
+| **Approve** ✅ | 审批通过 | 内容没问题，同意合并 |
+| **Request changes** ❌ | 要求修改 | 发现问题，必须改完才能合并 |
+
+<Warning>
+  选择 **Request changes** 后，即使其他人 Approve，这个 PR 也无法合并，直到你重新 Review 并改为 Approve。
+</Warning>
+
+---
+
 ## 审查通过后合并
 
 当审查人 Approve 且所有检查通过后，PR 页面底部会出现绿色的 **Merge pull request** 按钮：
