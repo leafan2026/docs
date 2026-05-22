@@ -52,6 +52,7 @@
           {
             "group": "金数据帮助中心",
             "pages": [
+              "maxin/jinshuju-caozuo-zhinan",
               "features/sms",
               "features/pull-request"
             ]
